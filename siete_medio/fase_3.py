@@ -7,6 +7,7 @@ x=True
 y=True
 z=True
 res_lit=[]
+ban_res_list=[]
 points=100
 
 
@@ -50,6 +51,7 @@ while x:
                 y=False
                 res_lit.append(count)
                 points+=5
+    #The bank
     while z:
         rand_num=randint(0,9)
         card=posible_nums[rand_num]
@@ -57,21 +59,14 @@ while x:
             card=0.5
 
         if count>ban_count and count<7.5:
-        
-##Para a la banca si ya tiene una carta y el jugador se ha pasado
-#        if count>7.5 and ban_count!=0:    
-#            print(f"The bank got: {ban_count} points")
-#            z=False
-##Da carta si carta jugador es mayor que la de la banca y esta entre 5-7.5
-#        if count>5 and count<=7.5 and count>ban_count:
-#            ban_count+=card
-##Se da la primera carta a la banca
-#        if ban_count==0:
-#            ban_count+=card
-##Para banca si se pasa
-#        if ban_count>7.5:
-#            print(f"The bank got: {ban_count} points")
-#            z=False
+            ban_count+=card
+            print(f"The bank got a {card}")
+
+        else:
+            z=False
+            print(f"The final bank count is {ban_count}")
+            ban_res_list.append(ban_count)
+
     if points<=0:
         x=False    
         print("You ran out of points, better luck next time")
@@ -82,4 +77,6 @@ while x:
             print(f"Nice game, you got {points} points!")
         else:
             y=True
-print(f"The result you got were: {res_lit}")
+            z=True
+print(f"The results you got were: {res_lit}")
+print(f"The results the bank got were: {ban_res_list}")

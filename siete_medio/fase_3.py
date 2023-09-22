@@ -29,25 +29,20 @@ while x:
             print(f"Your current card count is: {count}")
 
         if count>7.5:
-            print("You lost the game, better luck next time!")
             y=False
             res_lit.append(count)
             points-=10
             
-        if count==7.5:
-                print("Congratultions, you won the game!")
+        if count==7.5:    
                 y=False
                 res_lit.append(count)
                 points+=10
         if want_card!="0":
-            if count <6:
-                print("You could risk it a little more!")
+            if count <6:               
                 y=False
                 res_lit.append(count)
-                points-=5
-                
-            elif count in [6,6.5,7]:
-                print("You were a little conservative!")
+                points-=5  
+            elif count in [6,6.5,7]:  
                 y=False
                 res_lit.append(count)
                 points+=5
@@ -58,7 +53,13 @@ while x:
         if card in [10,11,12]:
             card=0.5
 
-        if count>ban_count and count<7.5:
+        if count>ban_count and count<7.51:
+            ban_count+=card
+            print(f"The bank got a {card}")
+        elif ban_count==0:
+            ban_count+=card
+            print(f"The bank got a {card}")
+        elif count==ban_count and count>=5:
             ban_count+=card
             print(f"The bank got a {card}")
 
@@ -66,6 +67,18 @@ while x:
             z=False
             print(f"The final bank count is {ban_count}")
             ban_res_list.append(ban_count)
+    if count>7.5:
+        print("You lost, the bank beat you!")
+    elif ban_count>count and ban_count<7.51:
+        print("You lost, the bank beat you!")
+    elif ban_count<count and count < 7.51:
+        print("You beat the bank!")
+    elif count==ban_count:
+        print("This is a draw!")
+    elif ban_count>7.5 and count>7.5: 
+        print("You both lost!")
+    elif ban_count>7.5 and count <=7.5:
+        print("You beat the bank!")
 
     if points<=0:
         x=False    

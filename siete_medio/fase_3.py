@@ -1,5 +1,5 @@
 from random import randint
-
+#Missing: add the display of the results
 posible_nums=[1,2,3,4,5,6,7,10,11,12]
 radn_num=-1
 card=0
@@ -9,7 +9,9 @@ z=True
 res_lit=[]
 ban_res_list=[]
 points=100
-
+wins_ban=0
+los_ban=0
+draw_ban=0
 
 while x:
     count=0
@@ -69,16 +71,22 @@ while x:
             ban_res_list.append(ban_count)
     if count>7.5:
         print("You lost, the bank beat you!")
+        los_ban+=1
     elif ban_count>count and ban_count<7.51:
         print("You lost, the bank beat you!")
+        los_ban+=1
     elif ban_count<count and count < 7.51:
         print("You beat the bank!")
+        wins_ban+=1
     elif count==ban_count:
         print("This is a draw!")
+        draw_ban+=1
     elif ban_count>7.5 and count>7.5: 
         print("You both lost!")
+        los_ban+=1
     elif ban_count>7.5 and count <=7.5:
         print("You beat the bank!")
+        wins_ban+=1
 
     if points<=0:
         x=False    

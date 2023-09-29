@@ -12,7 +12,9 @@ points=100
 wins_ban=0
 los_ban=0
 draw_ban=0
-
+#Registro
+reg=open("registro.txt", "w")
+#ganas 2, pierdes 0, empate 1
 while x:
     count=0
     ban_count=0
@@ -72,21 +74,27 @@ while x:
     if count>7.5:
         print("You lost, the bank beat you!")
         los_ban+=1
+        reg.write("0")
     elif ban_count>count and ban_count<7.51:
         print("You lost, the bank beat you!")
         los_ban+=1
+        reg.write("0")
     elif ban_count<count and count < 7.51:
         print("You beat the bank!")
         wins_ban+=1
+        reg.write("2")
     elif count==ban_count:
         print("This is a draw!")
         draw_ban+=1
+        reg.write("1")
     elif ban_count>7.5 and count>7.5: 
         print("You both lost!")
         los_ban+=1
+        reg.write("1")
     elif ban_count>7.5 and count <=7.5:
         print("You beat the bank!")
         wins_ban+=1
+        reg.write("2")
 
     if points<=0:
         x=False    
@@ -101,3 +109,4 @@ while x:
             z=True
 print(f"The results you got were: {res_lit}")
 print(f"The results the bank got were: {ban_res_list}")
+reg.close()

@@ -1,3 +1,3 @@
-from math  import sqrt
-
-print(sqrt(0))
+x=1
+if 0>x<2:
+    print("k")

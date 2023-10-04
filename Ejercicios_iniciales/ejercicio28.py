@@ -1,4 +1,4 @@
-#. Mejora el programa anterior para controlar también la introducción de símbolos. Utiliza elif
+# Mejora el programa anterior para controlar también la introducción de símbolos. Utiliza elif
 
 let=input("Introduce la letra: ")
 if let.isnumeric():

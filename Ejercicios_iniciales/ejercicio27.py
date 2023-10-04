@@ -3,7 +3,7 @@
 
 let=input("Introduce la letra: ")
 if let.isnumeric():
-    print("It can't be a number")
+    print("No puede ser un número")
 else:
     if  let.islower():
         print("La letra es minúscula")

@@ -1,7 +1,7 @@
 #Programa un código que permita contar el número de vocales de la siguiente frase: No 
 #hay mal que dure cien años
 
-x="No hay mal que dure cien años aaaaa"
+x="No hay mal que dure cien años"
 a=x.count("a")
 e=x.count("e")
 i=x.count("i")

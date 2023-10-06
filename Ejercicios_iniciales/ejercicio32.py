@@ -3,8 +3,8 @@
 
 a="A quién madruga Dios ayuda"
 z=input("Itroduce un texto: ")
-y=z.lower
-x=a.lower
+y=z.lower()
+x=a.lower()
 existe=x.find(y)
 
 if existe != -1:

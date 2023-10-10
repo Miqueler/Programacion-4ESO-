@@ -1,4 +1,4 @@
-x="5bB_a7"
+x=input("Introduce la contraseña: ")
 if len(x)>=6 and len(x) <=8:
     #Pas 1
     try:
@@ -37,17 +37,19 @@ if len(x)>=6 and len(x) <=8:
     except ValueError:
         print("El sisé caracter ha de ser un número")
     #Pas 7
-    if x[6]in ["&", "/", "#"]:
-        print("Pas 7 completat")
-    else:
-        print("El quart caracter ha de ser un dels següents caracters: (&,/,#)")
-    #Pas 8
-    try:
-        if int(x[7]) <=5:
-            print("Pas 8 completat")
+    if len(x)>=7:
+        if x[6]in ["&", "/", "#"]:
+            print("Pas 7 completat")
         else:
-            print("Error, el numero ha d'estar entre 6 i 9")
-    except ValueError:
-        print("El vuité caracter ha de ser un número")
+            print("El quart caracter ha de ser un dels següents caracters: (&,/,#)")
+    #Pas 8
+    if len(x)>=8:
+        try:
+            if int(x[7]) <=5:
+                print("Pas 8 completat")
+            else:
+                print("Error, el numero ha d'estar entre 6 i 9")
+        except ValueError:
+            print("El vuité caracter ha de ser un número")
 else:
     print(f"Error, el password té una longitud de {len(x)} caràcters i no compleix els requisits")

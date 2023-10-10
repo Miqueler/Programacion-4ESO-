@@ -2,7 +2,7 @@
 #ejecute correctamente
 
 #inicializo valores a cada variable
-var_numero="6735"
+var_numero="6734"
 var_suma=0
 #obtengo su longitud
 var_longitud=len(var_numero)

@@ -1,3 +1,14 @@
+print('''Instruccions:
+        1.La contrasenya ha de tindre entre 6 i 8 caracters
+        2.Forçar els següents valors en les següents posicions:
+            Posició 1 Un número entre 1 i 5 inclosos
+            Posició 2 Una lletra minúscula
+            Posició 3 Una lletra majúscula
+            Posició 4 Un dels següents simbols *,_,@
+            Posició 5 Una lletra minúscula
+            Posició 6 Un número entre 6 i 9 inclosos
+            Posició 7 Un dels següents símbols &,/,#
+            Posició 8 Un número menor o igual a 5''')
 password=input("Introduce la contraseña: ")
 if len(password)>=6 and len(password) <=8:
     #Pas 1

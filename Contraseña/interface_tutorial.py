@@ -1,6 +1,5 @@
 from tkinter import *
 
-x=0
 
 #Creates window and configures it
 root=Tk()
@@ -19,10 +18,8 @@ entry1.delete(0,END)
 entry1.config(state=NORMAL)
 #Creates a button
 def opcion1(x):
-    x+=1
     print("Hi")
-    print(x)
-button1=Button(root, text=x, command=lambda:opcion1(0),padx=10,pady=10)
+button1=Button(root, text=x, command=lambda:opcion1(),padx=10,pady=10)
 button1.config(font=("Helvatica",20))
 button1.place(x=20,y=140,width=350, height=80)
 

@@ -1,5 +1,7 @@
 from tkinter import *
 
+x=0
+
 #Creates window and configures it
 root=Tk()
 root.title("Miquel's window")
@@ -16,10 +18,16 @@ entry1.get()
 entry1.delete(0,END)
 entry1.config(state=NORMAL)
 #Creates a button
-def opcion1():
+def opcion1(x):
+    x+=1
     print("Hi")
-button1=Button(root, text="Free VBUCKS", command=lambda:opcion1(),padx=10,pady=10)
+    print(x)
+button1=Button(root, text=x, command=lambda:opcion1(0),padx=10,pady=10)
 button1.config(font=("Helvatica",20))
 button1.place(x=20,y=140,width=350, height=80)
+
+
+texto_resultado=Text(root, width=80, height=10)
+texto_resultado.place(x=520,y=390)
 
 root.mainloop()

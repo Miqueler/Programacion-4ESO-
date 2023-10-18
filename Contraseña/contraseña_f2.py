@@ -6,6 +6,7 @@ while run:
     c4=0
     c5=0
     c6=0
+    correct=True
     print('''Instruccions:
         1.La contrasenya ha de tindre 8 caracters
         2.Ha de tindre les següents condicions:
@@ -22,11 +23,8 @@ while run:
             if i.isnumeric():
                 u=int(i)
                 if u >= 1 and u<=5:
-                    print(1)
-                    c1+=1
-                    
+                    c1+=1 
                 elif u>=6 and u<=9:
-                    print(5)
                     c5+=1
             if i.isalpha():
                 if i.islower():
@@ -39,16 +37,26 @@ while run:
                 c6+=1
         if c1!=2:
             print("Error 1")
+            correct=False
         if c2!=2:
             print("Error 2")
+            correct=False
         if c3!=1:
             print("Error 3")
+            correct=False
         if c4!=1:
             print("Error 4")
+            correct=False
         if c5!=1:
             print("Error 5")
+            correct=False
         if c6!=1:
             print("Error 6")
+            correct=False
+        if correct:
+            print("Todo bien, la contraseña es correcta!")
+        else:
+            print("La contraseña tiene errores!")
 
 
     else:

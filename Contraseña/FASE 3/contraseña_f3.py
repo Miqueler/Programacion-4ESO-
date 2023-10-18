@@ -6,7 +6,7 @@ root.state("zoomed")
 
 t_box=Entry(root)
 t_box.config(font=("Calibri",30))
-t_box.place(x=CENTER, y=CENTER, width=350, height=60)
+t_box.place(x=585, y=200, width=350, height=60)
 def gathering(t_b_name):
     pasword=t_box.get()
     print(pasword)
@@ -19,7 +19,7 @@ def gathering(t_b_name):
 
 enter_button=Button(root, text="ENTER", command=lambda:gathering(t_box), padx=10, pady=10)
 enter_button.config(font=("Helvatica", 40))
-enter_button.place(x=CENTER+400, y=CENTER, width=150, height=60)
+enter_button.place(x=950, y=200, width=150, height=60)
 
 root.mainloop()
 

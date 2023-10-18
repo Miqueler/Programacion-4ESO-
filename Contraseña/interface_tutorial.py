@@ -8,7 +8,8 @@ root.state("zoomed")
 #Creates text and places it
 label1=Label(root, text="CHOOSE AN OPTION", font=("Pixel LCD7", 25))
 label1.place(x=250,y=30,width=1200, height=60)
-label2=Label(root, text=" ",font=("Pixel LCD7",30))
+label2=Label(root, text="SUPERCALIFRAGILHISTICOESPIALIDOSO ",font=("Pixel LCD7",30))
+label2.place(x=CENTER, y=CENTER)
 #Creates an imput
 entry1=Entry(root)
 entry1.config(font=("Helvatica", 30))

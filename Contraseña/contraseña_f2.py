@@ -6,7 +6,6 @@ while run:
     c4=0
     c5=0
     c6=0
-    c7=0
     print('''Instruccions:
         1.La contrasenya ha de tindre 8 caracters
         2.Ha de tindre les següents condicions:
@@ -31,32 +30,26 @@ while run:
                     c5+=1
             if i.isalpha():
                 if i.islower():
-                    print(2)
                     c2+=1
                 elif i.isupper():
-                    print(3)
                     c3+=1
             elif i in ["*","_","@"]:
-                print(4)
                 c4+=1
-            
             elif i in ["&","/","#"]:
-                print(6)
                 c6+=1
-    if c1==2:
-        print("Correct1")
-    if c2==2:
-        print("Correct2")
-    if c3==1:
-        print("Correct3")
-    if c4==1:
-        print("Correct4")
-    if c5==1:
-        print("Correct5")
-    if c6==1:
-        print("Correct6")
-    if c7==1:
-        print("Correct7")
+        if c1!=2:
+            print("Error 1")
+        if c2!=2:
+            print("Error 2")
+        if c3!=1:
+            print("Error 3")
+        if c4!=1:
+            print("Error 4")
+        if c5!=1:
+            print("Error 5")
+        if c6!=1:
+            print("Error 6")
+
 
     else:
         print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")

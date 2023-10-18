@@ -47,6 +47,20 @@ while run:
             elif i in ["&","/","#"]:
                 print(6)
                 c6+=1
+    if c1==1:
+        print("Correct1")
+    if c2==2:
+        print("Correct2")
+    if c3==1:
+        print("Correct3")
+    if c4==1:
+        print("Correct4")
+    if c5==1:
+        print("Correct5")
+    if c6==1:
+        print("Correct6")
+    if c7==1:
+        print("Correct7")
 
     else:
         print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")

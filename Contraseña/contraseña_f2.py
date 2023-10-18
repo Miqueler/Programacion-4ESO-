@@ -10,14 +10,12 @@ while run:
     print('''Instruccions:
         1.La contrasenya ha de tindre 8 caracters
         2.Ha de tindre les següents condicions:
-            Un número entre 1 i 5 inclosos
-            Una lletra minúscula
+            Un número entre 1 i 5 inclosos x2
+            Una lletra minúscula x2
             Una lletra majúscula
             Un dels següents simbols *,_,@
-            Una lletra minúscula
             Un número entre 6 i 9 inclosos
-            Un dels següents símbols &,/,#
-            Un número menor o igual a 5''')
+            Un dels següents símbols &,/,#''')
     password=input("Introduce la contraseña: ")
     if len(password)==8:
         for i in password:
@@ -27,12 +25,10 @@ while run:
                 if u >= 1 and u<=5:
                     print(1)
                     c1+=1
+                    
                 elif u>=6 and u<=9:
                     print(5)
                     c5+=1
-                elif u<=5:
-                    print(7)
-                    c7+=1
             if i.isalpha():
                 if i.islower():
                     print(2)
@@ -47,7 +43,7 @@ while run:
             elif i in ["&","/","#"]:
                 print(6)
                 c6+=1
-    if c1==1:
+    if c1==2:
         print("Correct1")
     if c2==2:
         print("Correct2")

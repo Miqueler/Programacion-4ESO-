@@ -1,15 +1,20 @@
 from tkinter import *
 from checker import check
 
-def gathering(t_b_name,a):
+def gathering(t_b_name, answer_label):
     pasword=t_box.get()
     print(pasword)
     t_b_name.delete(0, END)
-    if check(pasword):
+    res=check(pasword)
+    if res==2:
         print("The password is correct")
-        a.config(HIDDEN)
-    else:
+        answer_label.config(text="The password is correct")
+    elif res==1:
         print("The password is incorrect")
+        answer_label.config(text="The password is incorrect")
+    elif res==0:
+        print(f"Error, el password té una longitud de {len(pasword)} caràcters i no compleix els requisits")
+        answer_label.config(text="The password is not the correct lenght")
 
 
 root=Tk()
@@ -28,12 +33,16 @@ info_text=Label(root, text='''Instruccions:
 info_text.config(font=("Helvatica", 20))
 info_text.place(x=400, y=300, width=600, height=300)
 
+answer_lab=Label(root, text="No pasword introduced")
+answer_lab.place(x=485, y=600)
+answer_lab.config(font=("Calibri", 40))
+
 
 t_box=Entry(root)
 t_box.config(font=("Calibri",30))
 t_box.place(x=485, y=200, width=350, height=60)
 
-enter_button=Button(root, text="ENTER", command=lambda:gathering(t_box, info_text), padx=10, pady=10)
+enter_button=Button(root, text="ENTER", command=lambda:gathering(t_box, answer_lab), padx=10, pady=10)
 enter_button.config(font=("Helvatica", 40))
 enter_button.place(x=850, y=200, width=200, height=60)
 

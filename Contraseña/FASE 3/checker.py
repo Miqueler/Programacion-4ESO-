@@ -53,12 +53,12 @@ def check(password):
             correct=False
         if correct:
         #    print("Todo bien, la contraseña es correcta!")
-            is_correct=True
+            is_correct=2
         else:
             print("La contraseña tiene errores!")
-            is_correct=False
+            is_correct=1
     else:
         print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")
-        is_correct=False
+        is_correct=0
     
     return is_correct

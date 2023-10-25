@@ -1,6 +1,8 @@
-from tkinter import *
-root = Tk()
-root.state("zoomed")
+def bark(x, y):
+    x+=y
 
-x=Message(text="Hi")
-root.mainloop()
+
+
+res=bark(6, 8)
+
+print(res)

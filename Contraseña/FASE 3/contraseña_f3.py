@@ -36,9 +36,9 @@ t_box.config(font=("Calibri",30))
 t_box.place(x=485, y=200, width=350, height=60)
 
 img=PhotoImage()
-img.config(file="dirt.png")
+img.config(file="Contraseña\FASE 3\dirt.png")
 
-enter_button=Button(root, text="ENTER", command=lambda:gathering(t_box), padx=10, pady=10)
+enter_button=Button(root, command=lambda:gathering(t_box), padx=10, pady=10)
 enter_button.config(font=("Helvatica", 40), image=img)
 enter_button.place(x=850, y=200, width=200, height=60)
 

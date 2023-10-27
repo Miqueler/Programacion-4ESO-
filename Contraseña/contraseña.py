@@ -61,10 +61,10 @@ if len(password)>=6 and len(password) <=8:
             errores+="Error en el caracter 8 "
             correct=False
 else:
-    print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")
+    errores+=f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits"
     correct=False
 
-if correct:
+if correct==True:
     print("La contraseña és correcta")
 else:
     print(errores)

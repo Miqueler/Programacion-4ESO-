@@ -55,10 +55,10 @@ for i in list_passwords:
         
 
     else:
-        print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")
+        errores+=f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits"
         correct=False
 
-    if correct:
+    if correct==True:
         print("La contraseña és correcta")
     else:
         print(errores)

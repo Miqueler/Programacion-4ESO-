@@ -35,7 +35,7 @@ if len(password)>=6 and len(password) <=8:
         print("El quart caracter ha de ser un dels següents caracters: (_,@,*)")
         correct=False
     #Pas 5
-    if not password[4].islower:
+    if not password[4].islower():
         print("El cinqué caracter ha de ser una lletra en minúscula")
         correct=False
     #Pas 6

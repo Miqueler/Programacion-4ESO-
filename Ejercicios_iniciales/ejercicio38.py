@@ -1,7 +1,7 @@
 #A partir del programa anterior, establece los rangos para que el usuario no pueda introducir 
 #notas inferiores a 0 y superiores a 10
 
-x=int(input("Cuantas notas quieres introducir?: "))
+x=int(input("¿Cuántas notas quieres introducir?: "))
 for i in range(x):
     nota=int(input("Introduce la nota: "))
     if nota >=0 and nota <=10:

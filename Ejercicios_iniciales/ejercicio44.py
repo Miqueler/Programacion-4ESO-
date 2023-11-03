@@ -5,4 +5,4 @@ y=""
 while x<100:
     y+=str(x)+","
     x+=3
-print(y)
+print(y[:-1])

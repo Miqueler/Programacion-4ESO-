@@ -3,7 +3,7 @@ from tkinter import messagebox
 from checker import check
 
 def gathering(t_b_name):
-    pasword=t_box.get()
+    pasword=t_b_name.get()
     t_b_name.delete(0, END)
     res=check(pasword)
     if res==2:

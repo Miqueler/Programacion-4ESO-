@@ -1,8 +1,5 @@
-def bark(x, y):
-    x+=y
-
-
-
-res=bark(6, 8)
-
-print(res)
+str1 = "abcdefghij"
+list1 = list(str1)
+print(list1)
+list2 = list1[:-1]
+print(list2)

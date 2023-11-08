@@ -1,5 +1,3 @@
-str1 = "abcdefghij"
-list1 = list(str1)
-print(list1)
-list2 = list1[:-1]
-print(list2)
+xs = [0, 10, 20, 40]
+print(reversed(xs))
+[40, 20, 10, 0]

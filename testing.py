@@ -1,3 +1,5 @@
-xs = [0, 10, 20, 40]
-print(reversed(xs))
-[40, 20, 10, 0]
+x="aoal"
+for i in x:
+    y=input("")
+    if y in x:
+        print("K")

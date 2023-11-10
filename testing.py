@@ -1,5 +1,8 @@
-x="aoal"
-for i in x:
-    y=input("")
-    if y in x:
-        print("K")
+for i in range(5):
+    print(i)
+
+    0
+    1
+    2
+    3
+    4

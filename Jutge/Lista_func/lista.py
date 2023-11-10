@@ -16,14 +16,12 @@ def average(L):
 def buildPalindrome(L):
     return L+list(reversed(L))
 
-def remove(L1, L2):
+def delete(L1, L2):
     L3=L1
-    c=0
     for i in L1:
         if i in L2:
-            L3.pop(c)
-        else:
-            c+=1
+            del L3[L3.index(i)]
+    print(f"List1: {L1}, List2: {L3}")
     return L3
 
 
@@ -39,4 +37,4 @@ print(myLenghth(a))
 print(myMaximum(b))
 print(average(d))
 print(buildPalindrome(e))
-print(remove(f,d))
+print(delete(f,d))

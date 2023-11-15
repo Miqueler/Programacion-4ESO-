@@ -4,8 +4,9 @@ from random import randint
 r_num=randint(1,5)
 guess=0
 while guess!=r_num:
-    while guess <=5 and guess>= 1:
+    guess=0
+    while guess >5 or guess< 1:
         guess=int(input("Introduce el número (1-5): "))
-        if guess!=r_num:
-            print("Número equivocado")
+    if guess!=r_num:
+        print("Número equivocado")
 print("Número correcto")

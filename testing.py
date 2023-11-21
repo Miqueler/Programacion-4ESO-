@@ -1,5 +1,6 @@
-x=""
-for i in range(10):
-    x+=str(i)+","
-    print(x)
-print(x[:-1])
+import time 
+a=0
+x=time.time()
+while time.time()-x < 3:
+    a+=1
+print(a)

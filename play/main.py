@@ -1,4 +1,4 @@
-from curses.panel import bottom_panel
+
 import pygame
 from sys import exit
 import movement
@@ -105,4 +105,3 @@ while True:
 
     pygame.display.update()
     clock.tick(60)
-       

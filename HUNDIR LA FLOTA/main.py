@@ -1,41 +1,49 @@
-class Map():
-    def __init__(self):
-        pass
-    
-    #*=blank b=boat hb=hit_boat
-    a=["*","*","*","*","*","*","*","*","*","*"]
-    b=["*","*","*","*","*","*","*","*","*","*"]
-    c=["*","*","*","*","*","*","*","*","*","*"]
-    d=["*","*","*","*","*","*","*","*","*","*"]
-    e=["*","*","*","*","*","*","*","*","*","*"]
-    f=["*","*","*","*","*","*","*","*","*","*"]
-    g=["*","*","*","*","*","*","*","*","*","*"]
-    h=["*","*","*","*","*","*","*","*","*","*"]
-    i=["*","*","*","*","*","*","*","*","*","*"]
-    j=["*","*","*","*","*","*","*","*","*","*"]
+
+a=["*","*","*","*","*","*","*","*","*","*"]
+b=["*","*","*","*","*","*","*","*","*","*"]
+c=["*","*","*","*","*","*","*","*","*","*"]
+d=["*","*","*","*","*","*","*","*","*","*"]
+e=["*","*","*","*","*","*","*","*","*","*"]
+f=["*","*","*","*","*","*","*","*","*","*"]
+g=["*","*","*","*","*","*","*","*","*","*"]
+h=["*","*","*","*","*","*","*","*","*","*"]
+i=["*","*","*","*","*","*","*","*","*","*"]
+j=["*","*","*","*","*","*","*","*","*","*"]
+
+c_a=["*","*","*","*","*","*","*","*","*","*"]
+c_b=["*","*","*","*","*","*","*","*","*","*"]
+c_c=["*","*","*","*","*","*","*","*","*","*"]
+c_d=["*","*","*","*","*","*","*","*","*","*"]
+c_e=["*","*","*","*","*","*","*","*","*","*"]
+c_f=["*","*","*","*","*","*","*","*","*","*"]
+c_g=["*","*","*","*","*","*","*","*","*","*"]
+c_h=["*","*","*","*","*","*","*","*","*","*"]
+c_i=["*","*","*","*","*","*","*","*","*","*"]
+c_j=["*","*","*","*","*","*","*","*","*","*"]
 #1*5, 1*4, 2*3, 1*2
-def setboats(a,b,c,d,e,f,g,h,i,j):
-    list(a,b,c,d,e,f,g,h,i,j)
-    print("If you place the boat verticaly, you must place the higher point")
+def get_boat_pos():
+    boat_pos=[]
+
+    row=""
+    while row not in ["a","b","c","d","e","f","g","h","i","j"]:
+            row=input("In what row do you want to place your boat (a-j): ")
     
     corr=False
-    x=str()
-    while x.isnumeric()==False and corr:
+    x=""
+    while corr==False:
         x=input("In what vertical row do you want to place your boat (1-10): ")
         if x.isnumeric():
-            if x>=1 and x<=10:
+            index=int(x)-1
+            if index>=0 and index<=9:
                 corr=True
-    x=int(x)-1
-    a.pop(x)
-    a.insert(x,"b")
-    return a
+    
+    direction=""
+    while direction not in ["up","down","left","right"]:
+            direction=input("In what direction do you want to place the boat (up, down, right, left): ")
+    boat_pos.append(row)
+    boat_pos.append(index)
+    boat_pos.append(direction)
+    return boat_pos
 
 
-
-
-p_map=Map()
-c_map=Map()
-print(p_map.a)
-xd=setboats(a=p_map.a,b=p_map.b,c=p_map.c,d=p_map.d,e=p_map.e,f=p_map.f,g=p_map.g,h=p_map.h,i=p_map.i,j=p_map.j)
-print(xd)
-print(p_map.a)
+print(get_boat_pos())

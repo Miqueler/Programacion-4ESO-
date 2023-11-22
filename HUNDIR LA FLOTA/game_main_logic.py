@@ -20,6 +20,78 @@ def get_boat_pos():
     #Returns the position given as an index: first the row and then the index in line
     return boat_pos
 
+def check_all_directions(boat_lenght,boat_pos,all_boats_list):
+    row=int(boat_pos[0])
+    index=int(boat_pos[1])
+    #Check for up
+    if row - boat_lenght>=0:
+        full_boat_list=[]
+        for i in range(boat_lenght-1):
+            counter=i+1
+            iter_boat=boat_pos
+            iter_boat=int(boat_pos[0])-counter
+            iter_boat=str(iter_boat)+boat_pos[1]
+            full_boat_list.append(iter_boat)
+        for i in all_boats_list:
+            for x in full_boat_list:
+                if x in i:
+                    up_possible=False
+                    break
+    else:
+        up_possible=False
+    #Check for down
+    if row + boat_lenght<=9:
+        full_boat_list=[]
+        for i in range(boat_lenght-1):
+            counter=i+1
+            iter_boat=boat_pos
+            iter_boat=int(boat_pos[0])+counter
+            iter_boat=str(iter_boat)+boat_pos[1]
+            full_boat_list.append(iter_boat)
+        for i in all_boats_list:
+            for x in full_boat_list:
+                if x in i:
+                    down_possible=False
+                    break
+    else:
+        down_possible=False
+    #Check for left
+    if index - boat_lenght>=0:
+        full_boat_list=[]
+        for i in range(boat_lenght-1):
+            counter=i+1
+            iter_boat=boat_pos
+            iter_boat=int(boat_pos[1])-counter
+            iter_boat=boat_pos[0]+str(iter_boat)
+            full_boat_list.append(iter_boat)
+        for i in all_boats_list:
+            for x in full_boat_list:
+                if x in i:
+                    left_possible=False
+                    break
+    else:
+        left_possible=False
+    #Check for right
+    if index + boat_lenght<=9:
+        full_boat_list=[]
+        for i in range(boat_lenght-1):
+            counter=i+1
+            iter_boat=boat_pos
+            iter_boat=counter+int(boat_pos[1])
+            iter_boat=boat_pos[0]+str(iter_boat)
+            full_boat_list.append(iter_boat)
+        for i in all_boats_list:
+            for x in full_boat_list:
+                if x in i:
+                    right_possible=False
+                    break
+    else:
+        right_possible=False
+    if up_possible==False and down_possible==False and left_possible==False and right_possible==False:
+        return False
+    else:
+        return True
+
 def get_boat_direction(boat_lenght,boat_pos):
     row=int(boat_pos[0])
     index=int(boat_pos[1])
@@ -68,6 +140,7 @@ def place_boat(boat_lenght,boat_pos,direciton):
             iter_boat=boat_pos[0]+str(iter_boat)
         current_boat_list.append(iter_boat)
     return current_boat_list
+
 def check_if_placement_possible(all_boats_list,boat_lenght):
     can_place_boat_check_1=False
     can_place_boat_check_2=False

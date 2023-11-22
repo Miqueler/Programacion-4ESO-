@@ -55,16 +55,16 @@ def place_boat(boat_lenght,boat_pos,direciton):
         counter=i+1
         iter_boat=boat_pos
         if direciton==0:
-            iter_boat=int(boat_pos[0])-counter
-            iter_boat=str(iter_boat)+boat_pos[1]
-        elif direciton==1:
-            iter_boat=int(boat_pos[0])+counter
-            iter_boat=str(iter_boat)+boat_pos[1]
-        elif direciton==2:
             iter_boat=int(boat_pos[1])-counter
             iter_boat=str(iter_boat)+boat_pos[0]
-        elif direciton==3:
+        elif direciton==1:
             iter_boat=int(boat_pos[1])+counter
             iter_boat=str(iter_boat)+boat_pos[0]
+        elif direciton==2:
+            iter_boat=int(boat_pos[0])-counter
+            iter_boat=str(iter_boat)+boat_pos[1]
+        elif direciton==3:
+            iter_boat=int(boat_pos[0])+counter
+            iter_boat=str(iter_boat)+boat_pos[1]
         current_boat_list.append(iter_boat)
     return current_boat_list

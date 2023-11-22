@@ -1,6 +1,9 @@
-import time 
-a=0
-x=time.time()
-while time.time()-x < 3:
-    a+=1
-print(a)
+x=[[2],[1]]
+print(x.__len__())
+x.pop([0][0])
+print(x.__len__())
+print(x)
+
+x=[[2],[1]]
+if [2] in x:
+    print("True")

@@ -51,20 +51,42 @@ def get_boat_direction(boat_lenght,boat_pos):
 
 def place_boat(boat_lenght,boat_pos,direciton):
     current_boat_list=[boat_pos]
-    for i in range(boat_lenght):
+    for i in range(boat_lenght-1):
         counter=i+1
         iter_boat=boat_pos
         if direciton==0:
-            iter_boat=int(boat_pos[1])-counter
-            iter_boat=str(iter_boat)+boat_pos[0]
-        elif direciton==1:
-            iter_boat=int(boat_pos[1])+counter
-            iter_boat=str(iter_boat)+boat_pos[0]
-        elif direciton==2:
             iter_boat=int(boat_pos[0])-counter
             iter_boat=str(iter_boat)+boat_pos[1]
-        elif direciton==3:
+        elif direciton==1:
             iter_boat=int(boat_pos[0])+counter
             iter_boat=str(iter_boat)+boat_pos[1]
+        elif direciton==2:
+            iter_boat=int(boat_pos[1])-counter
+            iter_boat=boat_pos[0]+str(iter_boat)
+        elif direciton==3:
+            iter_boat=int(boat_pos[1])+counter
+            iter_boat=boat_pos[0]+str(iter_boat)
         current_boat_list.append(iter_boat)
     return current_boat_list
+def check_if_placement_possible(all_boats_list,boat_lenght):
+    can_place_boat_check_1=False
+    can_place_boat_check_2=False
+    while not can_place_boat_check_1:
+        boat_pos=get_boat_pos()
+        for i in all_boats_list:
+            if boat_pos in i:
+                can_place_boat_check_1=False
+                break
+            else:
+                can_place_boat_check_1=True
+    while not can_place_boat_check_2:
+        direction=get_boat_direction(boat_lenght,boat_pos)
+        current_try_pos=place_boat(boat_lenght,boat_pos,direction)
+        for current_checking_boat_list in all_boats_list:
+            for caracter in current_try_pos:
+                if caracter in current_checking_boat_list:
+                    can_place_boat_check_2=False
+                    break
+                else:
+                    can_place_boat_check_2=True
+    return current_try_pos

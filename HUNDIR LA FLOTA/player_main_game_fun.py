@@ -20,3 +20,13 @@ def choose_hit(hits_list):
         if hit_coord not in hits_list:
             check=True
     return hit_coord
+
+#Returns if the boat was hit as True=Hit and False=Water
+def find_hit_result(bot_all_boats_list,hit_coord):
+    hit_result=False
+    for i in bot_all_boats_list:
+        if hit_coord in i:
+            i.pop(i.index(hit_coord))
+            hit_result=True
+            break
+    return hit_result

@@ -1,9 +1,5 @@
-x=[[2],[1]]
-print(x.__len__())
-x.pop([0][0])
-print(x.__len__())
+x=[[2,3],[1]]
+for i in x:
+    if 2 in i:
+        i.pop(i.index(2))
 print(x)
-
-x=[[2],[1]]
-if 2 in x[0]:
-    print("True")

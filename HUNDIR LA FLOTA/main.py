@@ -1,22 +1,25 @@
-from game_main_logic import *
+from player_map_main_logic import *
+from computer_map_main_logic import *
+import time
 #1*5, 1*4, 2*3, 1*2
 #Have to program check placed boats
 #Check if position is impossible for boat
-all_boats_list=[]
-#We place the 5 lenghth boat
+player_boat_placement=[]
 boat_pos=get_boat_pos()
 direction=get_boat_direction(5,boat_pos)
-single5=place_boat(5,boat_pos,direction)
-all_boats_list.append(single5)
-#We place the 4 lenght boat checking for no interfearence with the previous ones
-single4=check_if_placement_possible(all_boats_list,4)
-all_boats_list.append(single4)
-#We place the 3 lenght boats checking for no interfearence with the previous ones
-single3_1=check_if_placement_possible(all_boats_list,3)
-all_boats_list.append(single3_1)
-single3_2=check_if_placement_possible(all_boats_list,3)
-all_boats_list.append(single3_2)
-#We place the 3 lenght boats checking for no interfearence with the previous ones
-single2=check_if_placement_possible(all_boats_list,2)
-all_boats_list.append(single2)
-print(all_boats_list)
+player_boat_placement.append(place_boat(5,boat_pos,direction))
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,4))
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,2))
+print(player_boat_placement)
+time_start=time.time()
+
+bot_boat_placement=[]
+bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,5))
+bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,4))
+bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,3))
+bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,3))
+bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,2))
+print(bot_boat_placement)
+print(time.time()-time_start)

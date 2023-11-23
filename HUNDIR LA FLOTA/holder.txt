@@ -1,4 +1,0 @@
-pl-=1
-                a.pop(pl)
-                a.insert(pl,"b")
-    full_map=[a,b,c,d,e,f,g,h,i,j]

@@ -23,6 +23,10 @@ def get_boat_pos():
 def check_all_directions(boat_lenght,boat_pos,all_boats_list):
     row=int(boat_pos[0])
     index=int(boat_pos[1])
+    up_possible=True
+    down_possible=True
+    left_possible=True
+    right_possible=True
     #Check for up
     if row - boat_lenght>=0:
         full_boat_list=[]
@@ -142,16 +146,20 @@ def place_boat(boat_lenght,boat_pos,direciton):
     return current_boat_list
 
 def check_if_placement_possible(all_boats_list,boat_lenght):
-    can_place_boat_check_1=False
     can_place_boat_check_2=False
-    while not can_place_boat_check_1:
-        boat_pos=get_boat_pos()
-        for i in all_boats_list:
-            if boat_pos in i:
-                can_place_boat_check_1=False
-                break
-            else:
-                can_place_boat_check_1=True
+    impossible_placement_check=False
+    while not impossible_placement_check:
+        can_place_boat_check_1=False
+        while not can_place_boat_check_1:
+            boat_pos=get_boat_pos()    
+            for i in all_boats_list:
+                if boat_pos in i:
+                    can_place_boat_check_1=False
+                    break
+                else:
+                    can_place_boat_check_1=True
+        impossible_placement_check=check_all_directions(boat_lenght,boat_pos,all_boats_list)
+
     while not can_place_boat_check_2:
         direction=get_boat_direction(boat_lenght,boat_pos)
         current_try_pos=place_boat(boat_lenght,boat_pos,direction)

@@ -15,7 +15,7 @@ def choose_hit(hits_list):
                 index=int(x)-1
                 if index>=0 and index<=9:
                     corr=True
-        hit_coord+=str(row)
+        hit_coord+=str(row)     
         hit_coord+=str(index)
         if hit_coord not in hits_list:
             check=True
@@ -26,6 +26,8 @@ def find_hit_result(bot_all_boats_list,hit_coord):
     hit_result=False
     for i in bot_all_boats_list:
         if hit_coord in i:
+            print(i)
+            print(i.index(hit_coord))
             i.pop(i.index(hit_coord))
             hit_result=True
             break

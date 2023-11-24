@@ -7,15 +7,21 @@ import time
 #Have to program check placed boats
 #Check if position is impossible for boat
 player_boat_placement=[]
-#boat_pos=get_boat_pos()
-#direction=get_boat_direction(5,boat_pos)
-#player_boat_placement.append(place_boat(5,boat_pos,direction))
-#player_boat_placement.append(check_if_placement_possible(player_boat_placement,4))
-#player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
-#player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
-#player_boat_placement.append(check_if_placement_possible(player_boat_placement,2))
-#print(player_boat_placement)
+print("PLACE THE 5 LENGHT BOAT")
+boat_pos=get_boat_pos()
+direction=get_boat_direction(5,boat_pos)
+player_boat_placement.append(place_boat(5,boat_pos,direction))
+print("PLACE THE 4 LENGHT BOAT")
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,4))
+print("PLACE THE 3 LENGHT BOAT")
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
+print("PLACE THE 3 LENGHT BOAT")
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
+print("PLACE THE 2 LENGHT BOAT")
+player_boat_placement.append(check_if_placement_possible(player_boat_placement,2))
+print(player_boat_placement)
 
+print("NOW THE BOT IS GOING TO PLACE HIS BOATS")
 time_start=time.time()
 bot_boat_placement=[]
 bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,5))
@@ -26,6 +32,8 @@ bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,2))
 print(bot_boat_placement)
 print(time.time()-time_start)
 
+
+print("THE BOATS HAVE BEEN SET, THE WAR MUST BEGIN")
 player_hits_list=[]
 bot_hits_list=[]
 x=True
@@ -36,19 +44,36 @@ while x:
 
     
     if player_hit_result != "":
-        print("Tocado")
+        print("HIT")
         single_boat_list=bot_boat_placement[int(player_hit_result[0])]
         single_boat_list.pop(int(player_hit_result[1]))
         for i in bot_boat_placement:
             if i==[]:
-                print("BARCO HUNDIDIO")
+                print("BOAT DOWN!")
                 bot_boat_placement.pop(bot_boat_placement.index(i))
                 break
         if bot_boat_placement==[]:
             x=False
             print("You win, you have destroyed all the bot's boats!")
+    else:
+        print("You missed!")
 
     current_bot_hit=bot_choose_hit(bot_hits_list)
     bot_hits_list.append(current_bot_hit)
     bot_hit_result=bot_find_hit_result(player_boat_placement,current_bot_hit)
+
     
+    if bot_hit_result != "":
+        print("The bot has hitten one of your boats!")
+        single_boat_list=player_boat_placement[int(bot_hit_result[0])]
+        single_boat_list.pop(int(bot_hit_result[1]))
+        for i in player_boat_placement:
+            if i==[]:
+                print("THE BOT HAS SUNK ONE OF YOUR BOATS!")
+                player_boat_placement.pop(player_boat_placement.index(i))
+                break
+    else:
+        print("The bot has missed!")
+        if bot_boat_placement==[]:
+            x=False
+            print("You win, you have destroyed all the bot's boats!")

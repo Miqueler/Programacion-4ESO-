@@ -26,7 +26,6 @@ def find_hit_result(bot_all_boats_list,hit_coord):
     hit_result=""
     for i in bot_all_boats_list:
         if hit_coord in i:
-            i.pop(i.index(hit_coord))
             hit_result=str(bot_all_boats_list.index(i))+str(i.index(hit_coord))
             break
     return hit_result

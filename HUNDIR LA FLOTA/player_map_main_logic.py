@@ -117,7 +117,7 @@ def get_boat_direction(boat_lenght,boat_pos):
                 correct=True
                 direction=2
         elif direction == "right":
-            if row + boat_lenght<=9:
+            if index + boat_lenght<=9:
                 correct=True
                 direction=3
         else:

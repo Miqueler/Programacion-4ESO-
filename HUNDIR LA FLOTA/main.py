@@ -6,14 +6,14 @@ import time
 #Have to program check placed boats
 #Check if position is impossible for boat
 player_boat_placement=[]
-boat_pos=get_boat_pos()
-direction=get_boat_direction(5,boat_pos)
-player_boat_placement.append(place_boat(5,boat_pos,direction))
-player_boat_placement.append(check_if_placement_possible(player_boat_placement,4))
-player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
-player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
-player_boat_placement.append(check_if_placement_possible(player_boat_placement,2))
-print(player_boat_placement)
+#boat_pos=get_boat_pos()
+#direction=get_boat_direction(5,boat_pos)
+#player_boat_placement.append(place_boat(5,boat_pos,direction))
+#player_boat_placement.append(check_if_placement_possible(player_boat_placement,4))
+#player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
+#player_boat_placement.append(check_if_placement_possible(player_boat_placement,3))
+#player_boat_placement.append(check_if_placement_possible(player_boat_placement,2))
+#print(player_boat_placement)
 
 time_start=time.time()
 bot_boat_placement=[]
@@ -26,5 +26,7 @@ print(bot_boat_placement)
 print(time.time()-time_start)
 
 player_hits_list=[]
-
-player_hits_list.append(choose_hit(player_hits_list))
+current_player_hit=choose_hit(player_hits_list)
+player_hits_list.append(current_player_hit)
+player_hit_result=find_hit_result(bot_boat_placement,current_player_hit)
+print(player_hit_result)

@@ -1,3 +1,3 @@
-from player_main_game_fun import *
+from computer_map_main_logic import *
 
-print(choose_hit())
+print(bot_get_boat_direction(2,"19"))

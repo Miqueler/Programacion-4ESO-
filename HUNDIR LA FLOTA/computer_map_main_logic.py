@@ -101,7 +101,7 @@ def bot_get_boat_direction(boat_lenght,boat_pos):
             if index - boat_lenght>=0:
                 correct=True
         elif direction == 3:
-            if row + boat_lenght<=9:
+            if index + boat_lenght<=9:
                 correct=True
     #Returs direction as a number up=0 down=1 left=2 right=3
     return direction

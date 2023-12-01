@@ -76,7 +76,7 @@ while x:
     bot_hit_result=bot_find_hit_result(player_boat_placement,current_bot_hit)
 
     
-    if bot_hit_result != "":
+    if bot_hit_result != "" and x:
         print("The bot has hitten one of your boats!")
         bot_player_boat_hit.append(current_bot_hit)
         single_boat_list=player_boat_placement[int(bot_hit_result[0])]
@@ -86,8 +86,8 @@ while x:
                 print("THE BOT HAS SUNK ONE OF YOUR BOATS!")
                 player_boat_placement.pop(player_boat_placement.index(i))
                 break
-    else:
+    elif x:
         print("The bot has missed!")
-        if bot_boat_placement==[]:
+        if player_boat_placement==[]:
             x=False
-            print("You win, you have destroyed all the bot's boats!")
+            print("You loose, the bot has destroyed all of your boats!")

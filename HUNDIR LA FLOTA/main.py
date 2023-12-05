@@ -3,7 +3,6 @@ from computer_map_main_logic import *
 from player_main_game_fun import *
 from computer_main_game_fun import *
 from map_display import *
-import time
 #1*5, 1*4, 2*3, 1*2
 #Have to program check placed boats
 #Check if position is impossible for boat
@@ -28,7 +27,7 @@ print_map([],player_boat_placement,[])
 print(player_boat_placement)
 
 print("NOW THE BOT IS GOING TO PLACE HIS BOATS")
-time_start=time.time()
+
 bot_boat_placement=[]
 bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,5))
 bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,4))
@@ -36,7 +35,6 @@ bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,3))
 bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,3))
 bot_boat_placement.append(bot_check_if_placement_possible(bot_boat_placement,2))
 print(bot_boat_placement)
-print(time.time()-time_start)
 
 
 print("THE BOATS HAVE BEEN SET, THE WAR MUST BEGIN")

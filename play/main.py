@@ -13,40 +13,40 @@ pygame.mixer.init()
 screen = pygame.display.set_mode((800, 400))
 pygame.display.set_caption('Not Hypixel Skyblock')
 clock = pygame.time.Clock()
-test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
+test_font = pygame.font.Font("play/font/Pixeltype.ttf", 50)
 
 #Create textures#
-sky_surface = pygame.image.load('graphics/sky.png').convert()
-ground_surface = pygame.image.load('graphics/ground.png') .convert()
+sky_surface = pygame.image.load('play/graphics/sky.png').convert()
+ground_surface = pygame.image.load('play/graphics/ground.png') .convert()
 score_surface = test_font.render('My Game', False, (64, 64, 64))
 score_rect = score_surface.get_rect(center=(400, 50))
 
-snail_surface = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
+snail_surface = pygame.image.load('play/graphics/snail/snail1.png').convert_alpha()
 
 snail_rectangle = snail_surface.get_rect(midbottom=(600, 300))
 
-player_surface = pygame.image.load('graphics/Player/player_walk_1.png').convert_alpha()
+player_surface = pygame.image.load('play/graphics/Player/player_walk_1.png').convert_alpha()
 player_rectangle = player_surface.get_rect(midbottom=(80, 300))
 
+ground_rectangle= ground_surface.get_rect()
+
 #Main variables#
-jump_cooldown = 0
 jump_counter = 0
 player_current_surface = 0
 change_cooldown = 0
 #BG MUSIC#
-pygame.mixer.music.load('audio/music.wav')
+pygame.mixer.music.load('play/audio/music.wav')
 pygame.mixer.music.play(-1)
 #SOUNDS#
-jump_sound = pygame.mixer.Sound('audio/jump.mp3')
+jump_sound = pygame.mixer.Sound('play/audio/jump.mp3')
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    
-
     keys = pygame.key.get_pressed()
+
 
 
     screen.blit(sky_surface, (0, 0))
@@ -63,11 +63,20 @@ while True:
         snail_rectangle.left = 800
     screen.blit(player_surface, player_rectangle)
 
-
+    
 # JUMP#
-    
-    
-        
+    if keys[pygame.K_SPACE] and jump_counter==0 and player_rectangle.bottom==300:
+        jump_counter=20
+    print(jump_counter)
+    if jump_counter!=0:
+        jump_counter-=1
+        player_rectangle.bottom-=5
+
+    if player_rectangle.bottom>300:
+        player_rectangle.bottom=300
+
+    elif player_rectangle.bottom!=300 and jump_counter==0:
+        player_rectangle.y+=5
 #MOVEMENT#
     if keys[pygame.K_d] and player_rectangle.right < 800:
         player_rectangle.x += 5
@@ -84,22 +93,20 @@ while True:
     if keys[pygame.K_a] and player_rectangle.left > 0:
         player_rectangle.x -= 5
     
-    if snail_rectangle.collidedict:
-        player_rectangle.x = 400
 
 #TEXTURE RENDERER#
 #PLAYER#
     if player_current_surface == 0:
-        player_surface = pygame.image.load('graphics/Player/player_stand.png').convert_alpha()
+        player_surface = pygame.image.load('play/graphics/Player/player_stand.png').convert_alpha()
 
     if player_current_surface == -1:
-        player_surface = pygame.image.load('graphics/Player/jump.png').convert_alpha()
+        player_surface = pygame.image.load('play/graphics/Player/jump.png').convert_alpha()
 
     if player_current_surface == 1:
-        player_surface = pygame.image.load('graphics/Player/player_walk_1.png').convert_alpha()
+        player_surface = pygame.image.load('play/graphics/Player/player_walk_1.png').convert_alpha()
 
     if player_current_surface == 2:
-        player_surface = pygame.image.load('graphics/Player/player_walk_2.png').convert_alpha()
+        player_surface = pygame.image.load('play/graphics/Player/player_walk_2.png').convert_alpha()
 #SNAIL#        
     
 

@@ -120,8 +120,6 @@ def get_boat_direction(boat_lenght,boat_pos):
             if index + boat_lenght<=9:
                 correct=True
                 direction=3
-        else:
-            print("ERROR in direction")
     #Returs direction as a number up=0 down=1 left=2 right=3
     return direction
 

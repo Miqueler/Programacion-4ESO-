@@ -33,10 +33,10 @@ ground_rectangle= ground_surface.get_rect()
 #Main variables#
 jump_counter = 0
 player_current_surface = 0
-change_cooldown = 0
+snail_texture_counter=0
 #BG MUSIC#
 pygame.mixer.music.load('play/audio/music.wav')
-pygame.mixer.music.play(-1)
+pygame.mixer.music.play()
 #SOUNDS#
 jump_sound = pygame.mixer.Sound('play/audio/jump.mp3')
 
@@ -57,7 +57,7 @@ while True:
 
     screen.blit(score_surface, (score_rect))
     screen.blit(snail_surface, snail_rectangle)
-    snail_rectangle.x -= 2
+
     
     if snail_rectangle.right < 0:
         snail_rectangle.left = 800
@@ -66,11 +66,12 @@ while True:
     
 # JUMP#
     if keys[pygame.K_SPACE] and jump_counter==0 and player_rectangle.bottom==300:
-        jump_counter=20
-    print(jump_counter)
+        jump_counter=13
+        jump_sound.play()
     if jump_counter!=0:
         jump_counter-=1
-        player_rectangle.bottom-=5
+        player_rectangle.bottom-=8
+        player_current_surface=-1
 
     if player_rectangle.bottom>300:
         player_rectangle.bottom=300
@@ -80,19 +81,16 @@ while True:
 #MOVEMENT#
     if keys[pygame.K_d] and player_rectangle.right < 800:
         player_rectangle.x += 5
-        if player_current_surface == 0 and change_cooldown == 0:
-            player_current_surface = 1
-            change_cooldown = 2
-        if player_current_surface == 1 and change_cooldown == 0:
-            player_current_surface = 2
-            change_cooldown = 2
-        if change_cooldown > 0:
-            change_cooldown -= 1
-
-
+        if jump_counter==0:
+            player_current_surface=1
+    
     if keys[pygame.K_a] and player_rectangle.left > 0:
         player_rectangle.x -= 5
+        if jump_counter==0:
+            player_current_surface=2
     
+    if not keys[pygame.K_a] and not keys[pygame.K_d] and jump_counter==0:
+        player_current_surface=0
 
 #TEXTURE RENDERER#
 #PLAYER#
@@ -107,8 +105,16 @@ while True:
 
     if player_current_surface == 2:
         player_surface = pygame.image.load('play/graphics/Player/player_walk_2.png').convert_alpha()
-#SNAIL#        
-    
+#SNAIL#
+        
+    if snail_texture_counter==0:
+        snail_texture_counter=28
+        snail_surface = pygame.image.load("play/graphics/snail/snail1.png").convert_alpha()
+    if snail_texture_counter==14:
+        snail_surface = pygame.image.load("play/graphics/snail/snail2.png").convert_alpha()
+        snail_rectangle.x-=20
+    snail_texture_counter-=1
+
 
     pygame.display.update()
     clock.tick(60)

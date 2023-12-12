@@ -1,12 +1,6 @@
 
 import pygame
 from sys import exit
-import movement
-
-
-
-from sqlalchemy import false
-
 
 pygame.init()
 pygame.mixer.init()

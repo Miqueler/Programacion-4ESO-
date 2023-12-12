@@ -105,19 +105,19 @@ def get_boat_direction(boat_lenght,boat_pos):
         while direction not in ["up", "down", "left", "right"]:
             direction=input("In what direction do you want to place the boat (up, down, right, left): ")
         if direction == "up":
-            if row - boat_lenght>=0:
+            if row - (boat_lenght-1)>=0:
                 correct=True
                 direction=0
         elif direction == "down":
-            if row + boat_lenght<=9:
+            if row + (boat_lenght-1)<=9:
                 correct=True
                 direction=1
         elif direction == "left":
-            if index - boat_lenght>=0:
+            if index - (boat_lenght-1)>=0:
                 correct=True
                 direction=2
         elif direction == "right":
-            if index + boat_lenght<=9:
+            if index + (boat_lenght-1)<=9:
                 correct=True
                 direction=3
     #Returs direction as a number up=0 down=1 left=2 right=3

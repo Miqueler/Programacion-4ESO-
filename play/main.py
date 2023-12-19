@@ -36,6 +36,7 @@ snail_texture_counter=0
 snail_speed=20
 fly_texture_counter=0
 fly_speed=10
+ranodm_spawn=-1
 score=0
 loose=False
 #BG MUSIC#

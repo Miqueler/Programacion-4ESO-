@@ -66,17 +66,17 @@ while True:
     
     if snail_rectangle.right < 0:
         snail_rectangle.left = 800
-        snail_speed=randint(20,40)
-        score+=1
+        snail_speed=randint(30,50)
+        score+=2
     if fly_rectangle.right < 0:
         fly_rectangle.left = 800
-        fly_speed=randint(10,30)
-        score+=2
+        fly_speed=randint(8,20)
+        score+=1
     
 
     
 # JUMP#
-    if keys[pygame.K_SPACE] and jump_counter==0 and player_rectangle.bottom==300 and loose==False:
+    if keys[pygame.K_SPACE] and jump_counter==0 and player_rectangle.bottom==300 and loose==False or keys[pygame.K_w] and jump_counter==0 and player_rectangle.bottom==300 and loose==False:
         jump_counter=15
         jump_sound.play()
     if jump_counter!=0 and loose==False:

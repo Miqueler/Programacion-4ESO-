@@ -5,7 +5,7 @@ from sys import exit
 
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((800, 400))
+screen = pygame.display.set_mode((800, 400),pygame.FULLSCREEN)
 pygame.display.set_caption('Not Hypixel Skyblock')
 clock = pygame.time.Clock()
 test_font = pygame.font.Font("play/font/Pixeltype.ttf", 50)
@@ -22,7 +22,7 @@ snail_surface = pygame.image.load('play/graphics/snail/snail1.png').convert_alph
 snail_rectangle = snail_surface.get_rect(midbottom=(600, 300))
 
 fly_surface = pygame.image.load('play\graphics\Fly\Fly1.png').convert_alpha()
-fly_rectangle=fly_surface.get_rect(midbottom=(600, 200))
+fly_rectangle=fly_surface.get_rect(midbottom=(randint(200,700), 200))
 
 player_surface = pygame.image.load('play/graphics/Player/player_walk_1.png').convert_alpha()
 player_rectangle = player_surface.get_rect(midbottom=(80, 300))

@@ -5,7 +5,7 @@ from sys import exit
 
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((800, 400),pygame.FULLSCREEN)
+screen = pygame.display.set_mode((800, 400))
 pygame.display.set_caption('Not Hypixel Skyblock')
 clock = pygame.time.Clock()
 test_font = pygame.font.Font("play/font/Pixeltype.ttf", 50)

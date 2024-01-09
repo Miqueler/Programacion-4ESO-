@@ -63,7 +63,11 @@ while True:
         screen.blit(fly_surface,fly_rectangle)
         screen.blit(player_surface, player_rectangle)
     if loose:
-        pass
+        if keys[pygame.K_r]:
+            loose=False
+            snail_texture_counter=0
+            fly_texture_counter=0
+            score=0
     
     if snail_rectangle.right < 0:
         snail_rectangle.left = 800

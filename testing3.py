@@ -1,11 +1,7 @@
-jugar="s"
+from random import choice
 
-while jugar == "s":
-    x=2
-    while x>0:
-        print("k")
-        x-=1
-    jugar=""
-    while jugar != 's' and jugar!="n":
-        jugar=input("Do you ....: (S/N): ").lower()
-print("Se fini")
+test=[1,1,1,1,2,2,2,2,3,3,3,3]
+
+x=choice(test)
+test.pop(test.index(x))
+print(test)

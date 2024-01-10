@@ -1,6 +1,6 @@
-from random import randint
+from random import choice
 #Missing: add the display of the results
-posible_nums=[1,2,3,4,5,6,7,10,11,12]
+posible_nums=[1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,10,10,10,10,11,11,11,11,12,12,12,12]
 radn_num=-1
 card=0
 x=True
@@ -20,8 +20,11 @@ while x:
     ban_count=0
     
     while y:
-        rand_num=randint(0,9)
-        card=posible_nums[rand_num]
+        if posible_nums==[]:
+            print("Starting a new deck")
+            posible_nums=[1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,10,10,10,10,11,11,11,11,12,12,12,12]
+        card=choice(posible_nums)
+        posible_nums.pop(posible_nums.index(card))
         if card in [10,11,12]:
             card=0.5
 
@@ -52,8 +55,11 @@ while x:
                 points+=5
     #The bank
     while z:
-        rand_num=randint(0,9)
-        card=posible_nums[rand_num]
+        if posible_nums==[]:
+            print("Starting a new deck")
+            posible_nums=[1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,10,10,10,10,11,11,11,11,12,12,12,12]
+        card=choice(posible_nums)
+        posible_nums.pop(posible_nums.index(card))
         if card in [10,11,12]:
             card=0.5
 
@@ -66,7 +72,6 @@ while x:
         elif count==ban_count and count>=5:
             ban_count+=card
             print(f"The bank got a {card}")
-
         else:
             z=False
             print(f"The final bank count is {ban_count}")

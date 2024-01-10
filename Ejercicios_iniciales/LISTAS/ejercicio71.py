@@ -6,10 +6,10 @@ x=int(input("Cuántos números quieres introducir?: "))
 for i in range(x):
     test=True
     while test:
-        y=int(input("Introduce un número: "))
-        if y not in total:
+        y=input("Introduce un número: ")
+        if y not in total and y.isnumeric()==False:
             test=False
     
     total.append(y)
 
-print(total)
+print(total)    

@@ -2,7 +2,7 @@
 #esta lista no deben almacenarse las letras que se han introducido repetidas.
 
 total=[]
-x=int(input("Cuántos números quieres introducir?: "))
+x=int(input("Cuántas letras quieres introducir?: "))
 for i in range(x):
     test=True
     while test:

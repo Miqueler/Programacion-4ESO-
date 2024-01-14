@@ -33,7 +33,7 @@ converted_frase=""
 for i in frase:
     try:
         c_w=frase.index(i)
-    except IndexError: pass
+    except IndexError: break
     if c_w != acr_start_pos[0]:
         converted_frase+=i+" "
     else:
@@ -42,7 +42,7 @@ for i in frase:
         acr.pop(0)
         for y in range(acr_len):
             try:
-                frase.pop(c_w+y)
+                frase.pop(c_w)
             except IndexError: pass
 
 print(converted_frase)

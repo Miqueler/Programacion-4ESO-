@@ -1,3 +1,4 @@
-while True:
-    break
-    print("hi")
+x=[1,2,3]
+for i in x:
+    print(i)
+    x.pop(1)

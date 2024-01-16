@@ -45,4 +45,4 @@ for i in frase:
                 frase.pop(c_w)
             except IndexError: pass
 
-print(converted_frase)
+print(converted_frase[:-1])

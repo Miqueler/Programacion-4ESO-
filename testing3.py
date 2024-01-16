@@ -1,4 +1,2 @@
-x=[1,2,3]
-for i in x:
-    print(i)
-    x.pop(1)
+x=["12","2","234"]
+print(max(x))

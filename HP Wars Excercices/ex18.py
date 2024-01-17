@@ -8,12 +8,13 @@ while True:
 
 for i in range(len(frases)):
     current=frases[i].split()
-    #try:
-    #    next_frase=frases[i+1].split()
-    #except IndexError: next_frase="0"
     if i==0:
-        print("#"*len(max(current)))
+        print("#"*(len(max(current))+4))
     elif len(max(current))>len(max(frases[i-1].split())):
-        print("#"*len(max(current)))
+        print("#"*(len(max(current))+4))
+    else:
+        print("#"*(len(max(frases[i-1].split()))+4))
     for x in current:
-        print("#"+x+(" "*len(max(current)))-len(x)+"#")
+        print("# "+x+(" "*(len(max(current))-len(x)))+" #")
+
+print("#"*(len(max(current))+4))

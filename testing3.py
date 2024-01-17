@@ -1,2 +1,2 @@
-x=["12","2","234"]
-print(max(x))
+for i in range(2):
+    print(i)

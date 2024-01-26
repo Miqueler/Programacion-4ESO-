@@ -86,7 +86,7 @@ while True:
         jump_sound.play()
     if jump_counter!=0 and loose==False:
         jump_counter-=1
-        player_rectangle.bottom-=8
+        player_rectangle.bottom-=9
         player_current_surface=-1
 
     if player_rectangle.bottom>300:

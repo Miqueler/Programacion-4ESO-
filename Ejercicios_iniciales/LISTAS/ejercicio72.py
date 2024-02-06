@@ -9,7 +9,7 @@ x=int(input("Cuántos caracteres quieres introducir?: "))
 for i in range(x):
     test=True
     while test:
-        y=input("Introduce un número: ")
+        y=input("Introduce una letra: ")
 
         if y in acentos and y not in vocales:
             temp=acentos[y]

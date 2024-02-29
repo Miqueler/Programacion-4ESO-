@@ -40,7 +40,7 @@ while x!="#":
                 teams[count_b][1]+=point_rew
             if point_rew>4:
                 point_rew-=2
-            else:
+            elif point_rew>0:
                 point_rew-=1
 
 print(bikers)

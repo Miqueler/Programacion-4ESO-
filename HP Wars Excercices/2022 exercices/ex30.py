@@ -34,11 +34,11 @@ while x!="#":
                 teams[count_b][1]+=point_rew
 
 
-            point_rew-=1
             if fast_lap in x:
                 bikers[bikers.index(z)+1]+=1
                 brands[count_t][1]+=1
                 teams[count_b][1]+=point_rew
+            point_rew-=1
 
 print(bikers)
 print(brands)

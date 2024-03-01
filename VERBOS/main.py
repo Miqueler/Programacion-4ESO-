@@ -2,7 +2,8 @@ from random import randint
 with open("VERBOS\diccionario.txt") as d:
     dictionary=d.readlines()
 
-index=randint(0,191)
+#index=randint(0,191)
+index=3
 linea= dictionary[index].split(";")
 pasado=linea[1].split(",")
 participio=linea[2].split(",")

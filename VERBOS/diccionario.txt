@@ -1,7 +1,7 @@
 alight;alighted,alit;alighted,alit;apearse,posarse
 arise;arose;arisen;surgir,levantarse
 awake;awoke,awaked;awoken,awaked;despertar
-be;was,were;been	ser
+be;was,were;been;ser
 bear;bore;borne,born;soportar,cargar
 beat;beat;beaten,beat;golpear,vencer
 become;became;become;volverse,convertirse

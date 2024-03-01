@@ -97,7 +97,7 @@ lose;lost;lost;perder
 make;made;made;hacer
 may;might;N/A;poder
 mean;meant;meant;significar
-meet;met;met	conocer,encontrarse ;con
+meet;met;met;conocer,encontrarse con
 melt;melted;molten,melted;derretir
 mow;mowed;mown,mowed;segar
 pay;paid;paid;pagar
@@ -141,7 +141,7 @@ slide;slid;slid;deslizarse
 sling;slung;slung;tirar,lanzar
 slink;slunk;slunk;escaparse,andar a hurtadillas
 slit;slit;slit;cortar,rajar
-smell;smelt,smelled;;smelt,smelled	oler
+smell;smelt,smelled;smelt,smelled	oler
 smite;smote;smitten;golpear
 sow;sowed;sown,sowed;sembrar
 speak;spoke;spoken;hablar

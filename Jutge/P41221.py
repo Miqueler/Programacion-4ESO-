@@ -1,11 +1,9 @@
-x=input()
-l1=0
-if len(x.split())==2:
-    y=input()
-    for i in x.split():
-        l1+=int(i)
-    print(int(y)+int(l1))
-else:
-    for i in x.split():
-        l1+=int(i)
-    print(l1)
+all_list=[]
+while len(all_list) !=3:
+    x=input().split()
+    for i in x:
+        all_list.append(i)
+res=0
+for i in all_list:
+    res+=int(i)
+print(res)

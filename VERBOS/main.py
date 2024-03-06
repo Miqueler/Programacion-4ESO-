@@ -38,9 +38,20 @@ def conjugar_verbos(dictionary):
         if input("Si deseas participar introduce s: ").lower()!="s":
             break
         cont+=1
-    return [verbos,formas]
-
-def funcion_menu():
+    control_errores(verbos, formas)
+def esp_a_ing(dictionary):
+    while True:
+        index=randint(0,191)
+        linea= dictionary[index].split(";")
+        esp=linea[3].split(",")
+        eng=linea[0]
+        user_eng=input(f"Traduce {esp[0]} al inglés")
+        if user_eng in eng:
+            print("Correcto")
+        else: print(f"Error, una traducción es: {eng[0]}")
+        if input("Si deseas participar introduce s: ").lower()!="s":
+            break
+def funcion_menu(dictionary):
     decision=input('''Que quieres hacer?:
 1: Jugar a conjugar verbos
 2: Traducir del español al inglés
@@ -49,6 +60,9 @@ def funcion_menu():
 5: Consultar el diccionario
 6: Añadir nuevos verbos al txt
 7: Eliminar verbos del txt
-8: Salir''').lower()
-res=conjugar_verbos()
-control_errores(res[0],res[1])
+8: Salir''')
+    if decision=="1":
+        conjugar_verbos(dictionary)
+    elif decision=="2":
+        esp_a_ing(dictionary)
+funcion_menu(dictionary)

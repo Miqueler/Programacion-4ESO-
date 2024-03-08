@@ -1,2 +1,2 @@
 x="2.3"
-print(x.isfloat())
+print(x[1:])

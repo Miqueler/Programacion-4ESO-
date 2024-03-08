@@ -1,5 +1,5 @@
 from random import randint,choice
-with open("VERBOS\diccionario.txt") as d:
+with open("VERBOS/diccionario.txt") as d:
     dictionary=d.readlines()
 
 def control_errores(verbos,formas):
@@ -108,10 +108,16 @@ def consulta(dictionary):
         print(f"El participio es: {linea[2]}")
         print(f"La traducción es: {linea[3]}")
 def añade_verbos():
-    file=open("VERBOS\diccionario.txt","w")
-    x=file.readlines().append("\nHi")
-    file.write(x)
-    file.close()
+    file=open("VERBOS/diccionario.txt","a")
+    ing=input("Introduce el verbo en infinitivo (inglés) que quieres añadir: ")
+    pasado=input("Introduce el pado del verbo que quieres añadir: ")
+    participio=input("Introduce el participio del verbo que quieres añadir: ")
+    esp=input("Inttoduce la traducción al español del verbo: ")
+    final=f"{ing};{pasado};{participio};{esp}"
+    file.write(f"\n{final}")
+def elimina_verbos():
+    file=open("VERBOS/diccionario.txt")
+    file.
 def funcion_menu(dictionary,points):
     decision=input('''Que quieres hacer?:
 1: Jugar a conjugar verbos
@@ -135,5 +141,7 @@ def funcion_menu(dictionary,points):
         consulta(dictionary)
     elif decision=="6":
         añade_verbos()
+    elif decision=="7":
+        pass
 points=0
 points=funcion_menu(dictionary,points)

@@ -96,7 +96,7 @@ def consulta(dictionary):
     user_verb=input("Introduce el verbo en infinitivo que quieres consultar: ")
     c=0
     linea=""
-    while c<191:
+    while c<len(dictionary):
         if dictionary[c].split(";")[0]==user_verb:
             linea=dictionary[c].split(";")
             break
@@ -109,15 +109,30 @@ def consulta(dictionary):
         print(f"La traducción es: {linea[3]}")
 def añade_verbos():
     file=open("VERBOS/diccionario.txt","a")
-    ing=input("Introduce el verbo en infinitivo (inglés) que quieres añadir: ")
-    pasado=input("Introduce el pado del verbo que quieres añadir: ")
-    participio=input("Introduce el participio del verbo que quieres añadir: ")
-    esp=input("Inttoduce la traducción al español del verbo: ")
+    ing=input("Introduce el verbo en infinitivo (inglés) que quieres añadir: ").lower()
+    pasado=input("Introduce el pado del verbo que quieres añadir: ").lower()
+    participio=input("Introduce el participio del verbo que quieres añadir: ").lower()
+    esp=input("Inttoduce la traducción al español del verbo: ").lower()
     final=f"{ing};{pasado};{participio};{esp}"
     file.write(f"\n{final}")
-def elimina_verbos():
-    file=open("VERBOS/diccionario.txt")
-    file.
+def elimina_verbos(dictionary):
+    user_verb=input("Introduce el verbo en infinitivo que quieres eliminar: ").lower()
+    c=0
+    linea=""
+    while c<len(dictionary):
+        if dictionary[c].split(";")[0]==user_verb:
+            linea=dictionary[c].split(";")
+            break
+        c+=1
+    if linea=="":
+        print("El verbo no está en el diccionario")
+    else:
+        print(f"El verbo que quieres eliminar es:")
+        print(dictionary[c])
+        if input("Estas seguro (s): ").lower()=="s":
+            dictionary.pop(c)
+            file=open("VERBOS/diccionario.txt","w")
+            file.writelines(dictionary)
 def funcion_menu(dictionary,points):
     decision=input('''Que quieres hacer?:
 1: Jugar a conjugar verbos
@@ -142,6 +157,10 @@ def funcion_menu(dictionary,points):
     elif decision=="6":
         añade_verbos()
     elif decision=="7":
-        pass
+        elimina_verbos(dictionary)
 points=0
-points=funcion_menu(dictionary,points)
+test=True
+while test:
+    points=funcion_menu(dictionary,points)
+    if input("¿Quieres continuar?(s/n): ").lower()=="n":
+        test=False

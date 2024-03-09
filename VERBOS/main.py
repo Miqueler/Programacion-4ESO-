@@ -133,8 +133,11 @@ def elimina_verbos(dictionary):
             dictionary.pop(c)
             file=open("VERBOS/diccionario.txt","w")
             file.writelines(dictionary)
+            file.close()
 def funcion_menu(dictionary,points):
-    decision=input('''Que quieres hacer?:
+    loop=True
+    while loop==True:
+        decision=input('''Que quieres hacer?:
 1: Jugar a conjugar verbos
 2: Traducir del español al inglés
 3: Traducir del inglés al español
@@ -144,23 +147,22 @@ def funcion_menu(dictionary,points):
 7: Eliminar verbos del txt
 8: Salir
 ''')
-    if decision=="1":
-        points=conjugar_verbos(dictionary,points)
-    elif decision=="2":
-        points=esp_a_ing(dictionary,points)
-    elif decision=="3":
-        points=ing_a_esp(dictionary,points)
-    elif decision=="4":
-        points=desorden_total(dictionary,points)
-    elif decision=="5":
-        consulta(dictionary)
-    elif decision=="6":
-        añade_verbos()
-    elif decision=="7":
-        elimina_verbos(dictionary)
+        if decision=="1":
+            points=conjugar_verbos(dictionary,points)
+        elif decision=="2":
+            points=esp_a_ing(dictionary,points)
+        elif decision=="3":
+            points=ing_a_esp(dictionary,points)
+        elif decision=="4":
+            points=desorden_total(dictionary,points)
+        elif decision=="5":
+            consulta(dictionary)
+        elif decision=="6":
+            añade_verbos()
+        elif decision=="7":
+            elimina_verbos(dictionary)
+        elif decision=="8":
+            loop=False
+
 points=0
-test=True
-while test:
-    points=funcion_menu(dictionary,points)
-    if input("¿Quieres continuar?(s/n): ").lower()=="n":
-        test=False
+points=funcion_menu(dictionary,points)

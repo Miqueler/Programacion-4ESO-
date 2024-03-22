@@ -1,10 +1,11 @@
 from random import choice
 def añade_verbos():
-    file=open("AHORCADO\diccionario.txt","a")
+    file=open("AHORCADO\dic.txt","a")
     final=input("Introduce la palabra que quieres añadir: ").lower()
     file.write(f"\n{final}")
     file.close()
-
+#to do: not repeat letters and show the list
+    #sort an refine the words list so that there are no dashes or correct the problem
 
 x="s"
 add=input("Quieres añadir alguna palabra al diccionario?(s/n): ")
@@ -12,8 +13,8 @@ if add == "s":
     añade_verbos()
 
 
-with open("AHORCADO\diccionario.txt","r") as d:
-    lista_palabrasecreta=d.readlines()
+with open("AHORCADO\dic.txt","r") as d:
+    lista_palabrasecreta=d.read().splitlines()
 while x.lower()=="s":
     palabrasecreta=choice(lista_palabrasecreta)
     lista_partida=[]
@@ -30,7 +31,7 @@ while x.lower()=="s":
             for i in indices:
                 lista_partida.pop(i)
                 lista_partida.insert(i,letra)
-                print(lista_partida)
+            print(lista_partida)
         else:
             lista_ahorcado.append(ahor[c]); c+=1
             print(lista_partida)

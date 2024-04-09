@@ -1,6 +1,6 @@
 from random import choice
 import time
-
+import datetime
 #añadir el registro de las partidas a un txt
 def añade_verbos():
     file=open("AHORCADO\dic.txt","a")
@@ -41,7 +41,9 @@ with open("AHORCADO\dic.txt","r") as d:
     lista_palabrasecreta=d.read().splitlines()
 
 while x.lower()=="s":
-    palabrasecreta=choice(lista_palabrasecreta)
+    palabrasecreta=""
+    while palabrasecreta=="":
+        palabrasecreta=choice(lista_palabrasecreta)
     lista_partida=[]
     lista_ahorcado=[]
     lista_usadas=[]
@@ -81,7 +83,7 @@ while x.lower()=="s":
     if lista_ahorcado==["A","H","O","R","C","A","D","O"]:
         print(f"Has perdido, la palabra era {palabrasecreta}")
     else:
-        print("Enhorabuena, has ganado")
+        print("Enhorabuena, as ganado")
     print(f"Has acertado {len(aciertos)} veces y has fallado {len(errores)} veces")
     print(f"Has tardado {round(time.time()-tem,1)} segundos")
 
@@ -91,5 +93,10 @@ while x.lower()=="s":
     for i in range(len(lista_palabrasecreta)):
         file.write(f"{lista_palabrasecreta[i]}\n")
     file.close()
+
+
+    reg=open("AHORCADO\d_reg.txt","a")
+    reg.write(f"{datetime.datetime.now()},{palabrasecreta},{len(aciertos)},{len(errores)}\n")
+    reg.close()
 
     x=input("Quieres volver a jugar? (s/n): ")

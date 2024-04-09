@@ -1,2 +1,3 @@
-x="2.3"
-print(x[1:])
+from datetime import datetime
+
+print(datetime.now())

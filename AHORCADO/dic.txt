@@ -1,7 +1,9 @@
 
+
 antena
 arco
 barco
+barracanuda
 barrer
 barricada
 barro
@@ -13,7 +15,6 @@ camina
 carrera
 casa
 casco
-coche
 cola
 cubo
 desierto
@@ -21,7 +22,6 @@ diario
 enchufe
 espada
 esparcer
-esternoclidomastoideo
 hola
 iaia
 kuervo

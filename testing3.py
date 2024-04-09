@@ -1,3 +1,2 @@
-from datetime import datetime
-
-print(datetime.now())
+a="Abs"
+print(len(a))

@@ -60,25 +60,29 @@ while x.lower()=="s":
         local_test=True
         while local_test:
             letra=input("Introduce la letra que adivinas: ")
-            if letra not in lista_usadas:
+            if letra.isnumeric():
+                print("No se pueden introducir valores numéricos")
+            elif len(letra)!=1:
+                print("Solo puedes introducir un caracter")
+            elif letra.lower() not in lista_usadas:
                 local_test=False
             else:
                 print("Ya has usado esta letra")
                 print(lista_usadas)
 
-        lista_usadas.append(letra)
+        lista_usadas.append(letra.lower())
         if letra in list(palabrasecreta):
-            aciertos.append(letra)
-            indices=[i for i, x in enumerate(list(palabrasecreta)) if x == letra]
+            aciertos.append(letra.lower())
+            indices=[i for i, x in enumerate(list(palabrasecreta)) if x == letra.lower()]
             for i in indices:
                 lista_partida.pop(i)
-                lista_partida.insert(i,letra)
+                lista_partida.insert(i,letra.lower())
             print(lista_partida)
         else:
             lista_ahorcado.append(ahor[c]); c+=1
             print(lista_partida)
             print(lista_ahorcado)
-            errores.append(letra)
+            errores.append(letra.lower())
         print(lista_usadas)
     if lista_ahorcado==["A","H","O","R","C","A","D","O"]:
         print(f"Has perdido, la palabra era {palabrasecreta}")

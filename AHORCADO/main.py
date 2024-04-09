@@ -60,8 +60,8 @@ while x.lower()=="s":
         local_test=True
         while local_test:
             letra=input("Introduce la letra que adivinas: ")
-            if letra.isnumeric():
-                print("No se pueden introducir valores numéricos")
+            if not letra.isalpha():
+                print("No se pueden introducir valores numéricos ni simbolos")
             elif len(letra)!=1:
                 print("Solo puedes introducir un caracter")
             elif letra.lower() not in lista_usadas:

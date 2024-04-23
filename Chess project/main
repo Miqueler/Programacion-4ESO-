@@ -1,0 +1,63 @@
+import  pygame as pg
+from sys import exit
+from draw_board import *
+from mouse_interactions import *
+
+pg.init()
+clock=pg.time.Clock()
+screen=pg.display.set_mode((640,640))
+pg.display.set_caption("Chess Board")
+
+
+board=[["R","N","B","Q","K","B","N","R"],
+    ["P","P","P","P","P","P","P","P"],
+    ["#","#","#","#","#","#","#","#"],
+    ["#","#","#","#","#","#","#","#"],
+    ["#","#","#","#","#","#","#","#"],
+    ["#","#","#","#","#","#","#","#"],
+    ["p","p","p","p","p","p","p","p"],
+    ["r","n","b","q","k","b","n","r"]]
+
+class Piece():
+    def __init__(self,route,pos) -> None:
+        self.surface=pg.image.load(route).convert_alpha()
+        self.pos=pos
+
+b_rook=Piece("pieces/rook_b.png",0)
+b_knight=Piece("pieces/knight_b.png",0)
+b_bishop=Piece("pieces/bishop_b.png",0)
+b_queen=Piece("pieces/queen_b.png",0)
+b_king=Piece("pieces/king_b.png",0)
+b_pawn=Piece("pieces/pawn_b.png",0)
+w_rook=Piece("pieces/rook_w.png",0)
+w_knight=Piece("pieces/knight_w.png",0)
+w_bishop=Piece("pieces/bishop_w.png",0)
+w_queen=Piece("pieces/queen_w.png",0)
+w_king=Piece("pieces/king_w.png",0)
+w_pawn=Piece("pieces/pawn_w.png",0)
+pieces_list=[b_rook,b_knight,b_bishop,b_queen,b_king,b_pawn,w_rook,w_knight,w_bishop,w_queen,w_king,w_pawn]
+square_x=0
+square_y=0
+square_color=(124,149,93)
+square_counter=0
+
+
+#MOUSE VARIABLES
+count=0
+is_click=False
+while True:
+    for event in pg.event.get():
+        if event.type==pg.QUIT:
+            pg.quit()
+            exit()
+
+    draw_base(screen)
+    draw_pieces(screen,board,pieces_list)
+    count=single_click_detecter(count)
+    if count==1:
+        piece=find_piece(board)
+    if click_detector():
+        draw_in_cursor(pieces_list,screen,board,piece)
+
+    pg.display.update()
+    clock.tick(60)

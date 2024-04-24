@@ -13,7 +13,9 @@ def single_click_detecter(counter):
         counter=1
     elif x and counter==1:
         counter=2
-    if not x:
+    elif not x and counter==2:
+        counter=3
+    elif not x and counter==3:
         counter=0
     return counter
 
@@ -21,7 +23,10 @@ def find_piece(board):
     mouse_pos=pg.mouse.get_pos()
     coords=[mouse_pos[0]//80,mouse_pos[1]//80]
     if board[coords[1]][coords[0]]!="#":
-        return board[coords[1]][coords[0]]
+        piece=board[coords[1]][coords[0]]
+        board[coords[1]].pop(coords[0])
+        board[coords[1]].insert(coords[0],"#")
+        return (piece,board,coords)
 
 
 def draw_in_cursor(pieces_list,screen,board,piece):
@@ -53,3 +58,18 @@ def draw_in_cursor(pieces_list,screen,board,piece):
         screen.blit(pieces_list[10].surface,mouse_pos)
     elif piece=="p":
         screen.blit(pieces_list[11].surface,mouse_pos)
+    return board
+
+def place_pieces(board,coords,piece):
+    mouse_pos=pg.mouse.get_pos()
+    round_mouse_pos=[mouse_pos[0]//80,mouse_pos[1]//80]
+    if piece!="#":
+        if piece.isupper() and board[round_mouse_pos[1]][round_mouse_pos[0]].islower() or piece.islower() and board[round_mouse_pos[1]][round_mouse_pos[0]].isupper():
+            board[round_mouse_pos[1]].pop(round_mouse_pos[0])
+            board[round_mouse_pos[1]].insert(round_mouse_pos[0],piece)
+        elif board[round_mouse_pos[1]][round_mouse_pos[0]]=="#":
+            board[round_mouse_pos[1]].pop(round_mouse_pos[0])
+            board[round_mouse_pos[1]].insert(round_mouse_pos[0],piece)
+        else:
+            board[coords[1]].pop(coords[0])
+            board[coords[1]].insert(coords[0],piece)

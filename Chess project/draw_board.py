@@ -4,19 +4,20 @@ def draw_base(screen):
     square_y=0
     for i in range(8):
         if square_counter%2!=0:
-            square_color=(238,238,213)
-        else:
             square_color=(124,149,93)
+        else:
+            square_color=(238,238,213)
         square_x=0
         for i in range(8):
             pg.draw.rect(screen,square_color,[square_x,square_y,80,80])
             square_x+=80
-            if square_color==(124,149,93):
-                square_color=(238,238,213)
-            else:
+            if square_color==(238,238,213):
                 square_color=(124,149,93)
+            else:
+                square_color=(238,238,213)
         square_y+=80
         square_counter+=1
+
 
 def draw_pieces(screen,board,pieces_list):
     p_x=0

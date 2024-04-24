@@ -38,13 +38,14 @@ w_pawn=Piece("pieces/pawn_w.png",0)
 pieces_list=[b_rook,b_knight,b_bishop,b_queen,b_king,b_pawn,w_rook,w_knight,w_bishop,w_queen,w_king,w_pawn]
 square_x=0
 square_y=0
-square_color=(124,149,93)
 square_counter=0
 
 
 #MOUSE VARIABLES
 count=0
 is_click=False
+
+searchble=False
 while True:
     for event in pg.event.get():
         if event.type==pg.QUIT:
@@ -55,9 +56,21 @@ while True:
     draw_pieces(screen,board,pieces_list)
     count=single_click_detecter(count)
     if count==1:
-        piece=find_piece(board)
-    if click_detector():
+        search_res=find_piece(board)
+        try:
+            piece=search_res[0]
+            board=search_res[1]
+            taken_piece_coords=search_res[2]
+            searchble=True
+        except:
+            pass
+    
+    elif count==3 and searchble:
+        place_pieces(board,taken_piece_coords,piece)
+        searchble=False
+    
+    if click_detector() and searchble:
         draw_in_cursor(pieces_list,screen,board,piece)
-
+    print(f"{searchble} , {count}")
     pg.display.update()
     clock.tick(60)
